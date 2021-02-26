@@ -1,0 +1,56 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="wrapper">
+    <div class="let-start"></div>
+    <h1 class="let-start-header">Let's Start</h1>
+    <p class="let-start-p">
+      Fill out the form and we'll get in touch to get your trial set up.
+    </p>
+    <p class="let-start-p-sm">Fill out the form and we'll get in touch soon.</p>
+    <div class="radio-button">
+      <label for="ads-label" class="ads-label"
+        >Do you want to make ads that convert?
+      </label>
+      <input
+        class="radio-button-yes"
+        type="radio"
+        name="ads-label"
+        id="ads"
+        value="yes"
+      /><span class="radio-button-yes-label">Yes</span>
+      <input
+        class="radio-button-no"
+        type="radio"
+        name="ads-label"
+        id="ads"
+        value="no"
+      /><span class="radio-button-no-label">No</span>
+    </div>
+    <div class="input-budget">
+      <label for="budget" class="input-budget-label"
+        >What's your monthly ad budget?
+      </label>
+      <div class="custom-select" style="width: 200px">
+        <select
+          formControlName="budget"
+          name="budget"
+          id="budget"
+          class="budget-select-dropdown"
+        >
+          <option class="option-style" value="">Select</option>
+          <option class="option-style" value="500">500</option>
+          <option class="option-style" value="1000">1000</option>
+        </select>
+        <span
+          class="input-monthly-budget-span"
+          *ngIf="f.budget.touched && f.budget.errors"
+        >
+          <span *ngIf="f.budget.errors.required"> Budget required</span>
+        </span>
+      </div>
+    </div>
+    <div class="input-submit">
+      <div class="input-submit-bg"></div>
+      <button class="input-submit-text">GET STARTED</button>
+    </div>
+  </div>
+</form>
